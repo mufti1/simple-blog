@@ -10,7 +10,7 @@ class PostController extends Controller
 {
     public function publicHomePage()
     {
-        $posts = Post::paginate(5);
+        $posts = Post::paginate(3);
         return view('blog/home', ['posts'=>$posts]);
     }
     /**
@@ -64,9 +64,14 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        //
+        $post = Post::find($id);
+        $data = array(
+                'id' => $id,
+                'post' => $post
+            );
+        return view('blog.view_post', $data);
     }
 
     /**

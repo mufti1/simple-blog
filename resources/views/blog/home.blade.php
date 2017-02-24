@@ -10,9 +10,9 @@
 		@foreach ($posts as $post)
 		<div class="jumbotron">
 			<h1 class="display-3">{{ $post->title }}</h1>
-			<?php echo  $post->body;?>
+			{!! str_limit($post->body, $limit=500 , $end='...') !!}
 			<p class="lead">
-				<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+				<a class="btn btn-primary btn-lg" href="{{ route('posts.show', ['id'=>$post->id]) }}" role="button">Read More</a>
 			</p>
 		</div>
 		@endforeach

@@ -10,9 +10,17 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
 <body>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/jv_ID/sdk.js#xfbml=1&version=v2.8&appId=1114416045346839";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 	<div class="container-fluid">
 		<nav class="navbar navbar-light bg-faded">
-			<a class="navbar-brand" href="/">Welcome</a>
+			<a class="navbar-brand" href="/">Home</a>
 			<ul class="nav navbar-nav navbar-right">
 				<!-- Authentication Links -->
 				@if (Auth::guest())
@@ -43,28 +51,7 @@
 	</nav>
 </div>
 <div class="container">
-	<nav class="navbar navbar-ligth">
-		<ul class="nav navbar-nav">
-			<li class="dropdown">
-				<a href="" class="dropdown-toggle" data-toggle="dropdown">Sort By <span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="">Top Recent</a></li>
-					<li><a href="">Top Recent</a></li>
-					<li><a href="">Top Recent</a></li>
-				</ul>
-			</li>
-		</ul>
-		@if(Auth::check())
-		<ul class="nav navbar-nav navbar-right">
-			<li><a href="{{ route('posts.index') }}">Manage Post</a></li>
-		</ul>
-		@endif
-	</nav>
-</div>
-<div class="container">
-	<div class="row">
 		@yield('content')
-	</div>
 </div>
 <div class="text-center">
 	<p>&copy; Copyright Codeshark 2017</p>
