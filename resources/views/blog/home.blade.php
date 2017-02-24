@@ -9,8 +9,8 @@
 		<h1>Top 10 POST</h1>
 		@foreach ($posts as $post)
 		<div class="jumbotron">
-			<h1 class="display-3">{{ $post->title }}</h1>
-			{!! str_limit($post->body, $limit=500 , $end='...') !!}
+			<h2>{{ $post->title }}</h2>
+			{!! str_limit($post->body, $limit=300 , $end='...') !!}
 			<p class="lead">
 				<a class="btn btn-primary btn-lg" href="{{ route('posts.show', ['id'=>$post->id]) }}" role="button">Read More</a>
 			</p>
