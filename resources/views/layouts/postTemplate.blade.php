@@ -48,9 +48,9 @@
 			<li class="dropdown">
 				<a href="" class="dropdown-toggle" data-toggle="dropdown">Sort By <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li><a href="">Top Recent</a></li>
-					<li><a href="">Top Recent</a></li>
-					<li><a href="">Top Recent</a></li>
+					<li><a href="{{ route('getPublic', ['type'=>'recentPosts']) }}">Top Recent</a></li>
+					<li><a href="{{ route('getPublic', ['type'=>'mostCommented']) }}">Top Comment</a></li>
+					<li><a href="{{ route('getPublic', ['type'=>'mostVisited']) }}">Top Visit</a></li>
 				</ul>
 			</li>
 		</ul>

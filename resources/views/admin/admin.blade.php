@@ -41,7 +41,7 @@
 		<th>Id</th>
 		<th>Title</th>
 		<th>Content</th>
-		<th colspan="2">Action</th>
+		<th colspan="3">Action</th>
 	</thead>
 
 	<tbody>
@@ -49,11 +49,18 @@
 		<tr>
 			<th>{{ $post->id }}</th>
 			<td>{{ $post->title }}</td>
-			<td>{{ $post->body }}</td>
-			<td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
-			<td><a href="#"><span class="glyphicon glyphicon-trash"></span></a></td>
-		</tr>
-		@endforeach
-	</tbody>
-</table>
-@endsection
+			<td>{!! str_limit($post->body, $limit=300 , $end='...') !!}</td>
+			<td><a href="{{ route('posts.show', ['id'=>$post->id]) }}"><span class="glyphicon glyphicon-link btn btn-success"></span></a>
+				<td><a href="{{ route('posts.edit', ['id'=>$post->id])}}"><span class="glyphicon glyphicon-pencil btn btn-info"></span></a></td>
+				<td>
+					<form action="{{ route('posts.destroy', ['id'=>$post->id]) }}" method="POST">
+						{{ csrf_field() }}
+						<input type="hidden" name="_method" value="DELETE">
+						<button type="submit" name="Delete" class="btn btn-danger"> <span class="glyphicon glyphicon-trash"></span> </button>
+					</form>
+				</td>
+			</tr>
+			@endforeach
+		</tbody>
+	</table>
+	@endsection
